@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+:root {
+    
+    --gray: #151516;
+    --red: #f50909;
+    --black: #030303;
+    --green: #1dc517;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--gray);
+}
+
+
+
+#header {
+    padding: 20px 20px 20px 40px;
+    font-size: 30px;
+    background-color: var(--black);
+    color: var(--green);
+    width: 100vw;
+    display: flex;
+    gap: 20px;
+   
+    
+}
+
+.secondRow {
+    display: flex;
+    justify-content: center;
+}
+.firstRow {
+    display: flex;
+    gap: 20px;
+}
+
+#buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    background-color: var(--black);
+    border-radius: 13px;
+}
+
+#container {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    margin-top: 30vh;
+}
+
+#score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 40px;
+    color: var(--green);
+    background-color: var(--black);
+    border-radius: 13px;
+}
+
+.choices {
+    background-color: var(--black);
+    font-size: 70px;
+    padding: 14px 28px;
+    border-radius: 13px;
+    border: var(--gray) 2px solid;
+    color: var(--green);
+}
+
+.transformButton {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+#hiUser {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,8 +1,9 @@
-function name(){
+function nameHello (){
 let name = prompt('Who are you?','Anonymous')
-let message = `Hi there ${name}!`
-console.log(message)
-return name
+let message = `USER : ${name}`
+document.title = message
+hiUser.textContent = message
+hiUser.classList.toggle('hidden')
 }
 
 function computerPlay(){
@@ -10,22 +11,6 @@ random = Math.floor((Math.random() * 3) + 1)
 return (random == 1) ? 'scissors' : (random == 2) ? 'rock' : 'paper' ;
 }
 
-
-function select(){
-let ans = prompt('rock, paper or scissors?','').toLowerCase()
-if (ans == 'rock' || ans == 'scissors' || ans == 'paper') {
-    
-    console.log(ans)
-    return ans
-
-} else {
-
-    console.log(`${ans} is an invalid selection!`)
-    return 'Invalid'
-
-  }
-
-}
 
 function playRound(playerSelection, computerSelection){
 
@@ -45,18 +30,15 @@ if (playerSelection == computerSelection) {
 
 }
 
-function playGame() {
+function playGame(e) {
 let win = 0
 let draw = 0
 let lose = 0
 
-let x = prompt('How many rounds?','5')
-
-    for (i = 0; i < x; i++) { 
-
-        let playerSelection = select()
-        let computerSelection = computerPlay()
         
+        let playerSelection = this.textContent.toLowerCase()
+        let computerSelection = computerPlay()
+       
        console.log(playRound(playerSelection, computerSelection))
 
        if (playRound(playerSelection, computerSelection) == 'You won!') {
@@ -69,16 +51,33 @@ let x = prompt('How many rounds?','5')
  
 }
 
-console.log(`win : ${win}, lose : ${lose}, draw : ${draw}`)
 
-if (win > lose) {
+let hiUser = document.getElementById('hiUser')
+let startButton = document.getElementById('startButton')
+let buttons = document.querySelectorAll('.choices')
 
-return 'So Lucky!'
+startButton.addEventListener('click',nameHello)
+startButton.addEventListener('mouseenter',redOnHover)
+startButton.addEventListener('mouseleave',removeRed)
 
-} else {
-    
-    return 'Nice try!'
+buttons.forEach(buttonAnimation)
 
+function buttonAnimation(item) {
+    item.addEventListener('mouseenter',redOnHover)
+    item.addEventListener('mouseleave',removeRed)
+    item.addEventListener('click',playGame)
 }
 
+function redOnHover(e) {
+    this.style.color = 'var(--red)'
+    this.classList.add('transformButton')
+}
+
+function removeRed(e) {
+    this.style.color = 'var(--green)'
+    this.classList.remove('transformButton')
+}
+
+function choice(e) {
+   
 }
