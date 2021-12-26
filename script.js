@@ -1,5 +1,6 @@
 function nameHello (){
-userName = prompt('Who are you?','Anonymous')
+userName = prompt('Who are you?','Hero')
+if (userName == null) { userName = 'Hero'}
 let message = `I've been expecting you ${userName}`
 document.title = message
 hiUser.textContent = message
@@ -77,7 +78,7 @@ function playGame(e) {
            winScore.innerText = `Win : ${win}`
            loseScore.innerText = `Lose : ${lose}`
            drawScore.innerText = `Draw : ${draw}`
-           enemyWeapon.innerText = `${userName} you are so bad! >`
+           enemyWeapon.innerText = `${userName}, you are so bad! >`
            userWeapon.innerText = '<Go AGANE!'
        }
        
