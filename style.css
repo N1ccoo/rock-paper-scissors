@@ -2,10 +2,10 @@
 
 :root {
     
-    --gray: #151516;
-    --red: #f50909;
-    --black: #030303;
-    --green: #1dc517;
+    --gray: #1C1C44;
+    --red: #211bc9;
+    --black: #040404;
+    --green: #3C7C9C;
 }
 
 
@@ -22,7 +22,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--gray);
+    background-image: url(images/gameBackground.png);
+    gap: 20px;
 }
 
 
@@ -55,24 +56,54 @@ body {
     padding: 40px;
     background-color: var(--black);
     border-radius: 13px;
+    border: var(--green) 2px solid;
 }
 
 #container {
     display: flex;
     justify-content: space-around;
     width: 100vw;
-    margin-top: 30vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    gap: 20px;
+    
 }
 
 #score {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    flex-direction: column;
+    padding: 40px;
     font-size: 40px;
     color: var(--green);
     background-color: var(--black);
     border-radius: 13px;
+    gap: 16px;
+    border: var(--green) 2px solid;
+}
+
+#computerSelection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+    padding: 40px;
+    color: var(--red);
+    font-size: 40px;
+    border: var(--red) 2px solid;
+    border-radius: 13px;
+    min-width: 600px;
+}
+
+#footer{
+background-color: var(--black);
+width: 100vw;
+margin-top: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+border-top: var(--green) 2px solid;
 }
 
 .choices {
@@ -96,4 +127,19 @@ body {
 
 .hidden {
     display: none;
+}
+
+.greyBorder {
+    border: var(--gray) 2px solid;
+    padding: 12px 18px;
+    border-radius: 13px;
+}
+
+#resetScore {
+    background-color: var(--black);
+    font-size: 30px;
+    padding: 14px 28px;
+    border-radius: 13px;
+    border: var(--gray) 2px solid;
+    color: var(--green);
 }
