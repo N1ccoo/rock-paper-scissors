@@ -1,7 +1,7 @@
 function nameHello (){
 userName = prompt('Who are you?','Hero')
 if (userName == null) { userName = 'Hero'}
-let message = `I've been expecting you ${userName}`
+let message = `I've been expecting you, ${userName}.`
 document.title = message
 hiUser.textContent = message
 hiUser.classList.toggle('hidden')
@@ -59,7 +59,7 @@ function playGame(e) {
        
         userWeapon.innerText = `${userWep}`
         enemyWeapon.innerText = `${enemyWep}`
-        console.log(playRound(playerSelection, computerSelection))
+        
         
 
        if (playRound(playerSelection, computerSelection) == 'You won!') {
@@ -82,6 +82,22 @@ function playGame(e) {
            userWeapon.innerText = '<Go AGANE!'
        }
        
+       if (win >= 30) {
+           
+           container.style.display = 'none'
+           endText.classList.toggle('hidden')
+           endText.textContent = 'You Vanquished the Monster.'
+           endText.classList.remove('lose')
+           endText.classList.add('win')
+        
+        } else if (lose >= 30) {
+           
+            container.style.display = 'none'
+            endText.classList.toggle('hidden')
+            endText.textContent = 'You Perished.'
+            endText.classList.remove('win')
+            endText.classList.add('lose')
+        }
        
 }
 let enemyWeapon = document.getElementById('enemyWep')
@@ -94,8 +110,8 @@ let hiUser = document.getElementById('hiUser')
 let startButton = document.getElementById('startButton')
 let buttons = document.querySelectorAll('.choices')
 let resetButton = document.getElementById('resetScore')
-
-
+let container = document.getElementById('container')
+let endText = document.getElementById('endGame')
 
 resetButton.addEventListener('click',playGame)
 resetButton.addEventListener('mouseenter',redOnHover)
@@ -108,6 +124,8 @@ startButton.addEventListener('mouseleave',removeRed)
 buttons[0].addEventListener('click',sword)
 buttons[1].addEventListener('click',bow)
 buttons[2].addEventListener('click',shield)
+
+resetButton.addEventListener('click',endToStart)
 
 buttons.forEach(buttonAnimation)
 
@@ -127,7 +145,14 @@ function removeRed(e) {
     this.classList.remove('transformButton')
 }
 
+function endToStart() {
+    container.style.display = 'flex'
+    endText.classList.toggle('hidden')
+}
 
+function endDisplayNone() {
+    container.style.display = 'none'
+}
 
 function sword() {
     userWep = '-(===>'
